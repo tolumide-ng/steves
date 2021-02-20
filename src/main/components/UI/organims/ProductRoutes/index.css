@@ -49,18 +49,6 @@
     position: relative;
 }
 
-/* header.scroll-snap-x::after {
-    inline-size: 0;
-    block-size: 1px;
-    border-radius: 2px;
-    background-color: var(--color-scorpion);
-    height: 2px;
-    width: 85%;
-    margin-bottom: 17px;
-    position: absolute;
-    top: 0;
-} */
-
 .product-header {
     margin-bottom: 17px;
 }
@@ -71,7 +59,6 @@
     border-radius: 2px;
     background-color: var(--color-scorpion);
     width: 90%;
-    margin-bottom: 17px;
 }
 
 .product section {
@@ -107,7 +94,7 @@
 }
 
 .product-cont {
-    margin-bottom: 64px;
+    /* margin-bottom: 64px; */
 }
 .product > header {
     flex-shrink: 0;

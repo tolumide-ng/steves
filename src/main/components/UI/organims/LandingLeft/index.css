@@ -1,0 +1,25 @@
+.gall {
+    height: 100%;
+    width: 100%;
+    background-color: var(--color-alabaster);
+    padding-left: 174px;
+}
+
+.gall-back {
+    border: none;
+    background-color: transparent;
+    margin-top: 58px;
+    padding-right: 99px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.gall-inner {
+    display: flex;
+    border: 1px solid green;
+}
+
+.gall-gal {
+    width: 100%;
+    max-width: 100%;
+}
