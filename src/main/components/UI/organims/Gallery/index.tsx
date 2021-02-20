@@ -75,11 +75,22 @@ export const Gallery = () => {
                             key={index}
                         >
                             {index === 0 ? (
-                                <img
-                                    src={mainImg}
-                                    alt=""
-                                    className="theg-theimg"
-                                />
+                                <div className="theg-mainimg-cont">
+                                    <img
+                                        src={mainImg}
+                                        alt=""
+                                        className="theg-theimg"
+                                    />
+                                    <p className="theg-mainimg-text">
+                                        Steven Stone Engraving for illustration
+                                        purposes only.
+                                        <br />
+                                        <span className="theg-red">
+                                            New:
+                                        </span>{" "}
+                                        You can now choose your own engraving
+                                    </p>
+                                </div>
                             ) : (
                                 <img
                                     src={image}

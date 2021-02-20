@@ -12,6 +12,7 @@
     --color-alabaster: #fafafa;
     --color-gallery: #efefef;
     --color-dove-gray: #6a6a6a;
+    --color-red: #d30000;
 }
 
 @media screen and (max-width: 1024px) {
