@@ -4,6 +4,7 @@ import { Route, Switch, withRouter } from "react-router";
 import ErrorBoundary from "../../components/Pages/ErrorBoundary";
 import { LandingPage } from "../../components/Pages/LandingPage";
 import { LoadingPage } from "../../components/Pages/LoadingPage";
+import { AppHeader } from "../../components/UI/organims/AppHeader";
 // import { NotFoundPage } from "../../components/Pages/NotFoundPage";
 import { setDropDownAction } from "../../store/modules/dropDown/actions";
 import { RootState } from "../../store/modules/types";
@@ -25,6 +26,7 @@ const AppRouter = withRouter(() => {
     return (
         <div className="appwide" onClick={handleCloseDropDown}>
             <main className="appwide-container">
+                <AppHeader />
                 <ErrorBoundary>
                     <Suspense fallback={<LoadingPage />}>
                         <Switch>
