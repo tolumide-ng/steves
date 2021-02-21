@@ -1,1 +1,2 @@
-## https://stevestone.herokuapp.com/#ring
+## https://stevestone.herokuapp.com/
+
