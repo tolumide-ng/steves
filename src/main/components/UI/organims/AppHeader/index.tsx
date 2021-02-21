@@ -6,6 +6,7 @@ import phone from "../../../../assets/images/phone.svg";
 import location from "../../../../assets/images/location.svg";
 import account from "../../../../assets/images/account.svg";
 import cart from "../../../../assets/images/cart.svg";
+import logo from "../../../../assets/images/logo.png";
 import "./index.css";
 import { Button } from "../../atoms/Button";
 
@@ -48,16 +49,28 @@ export const AppHeader = () => {
                 </ul>
             </nav>
             <div className="apph-mid">
-                <div className="apph-mid-lef">
+                <div className="apph-mid-left">
                     <Button
                         buttonClass="apph-mid-button"
                         buttonText="Book A Consultation"
                     />
 
-                    <a href="tel:+0800 080 3535">
-                        <img src={phone} alt="icon of a phone" />
+                    <a href="tel:+0800 080 3535" className="apph-img-phone">
+                        <img
+                            src={phone}
+                            alt="icon of a phone"
+                            className="apph-mid-phoneimg"
+                        />
                         0800 080 3535
                     </a>
+                </div>
+
+                <div className="apph-mid-mid">
+                    <img
+                        src={logo}
+                        alt="steve stone's logo"
+                        className="apph-mid-logo"
+                    />
                 </div>
 
                 <div className="apph-mid-right">
@@ -75,7 +88,7 @@ export const AppHeader = () => {
                 </div>
             </div>
             <nav className="apph-bottom">
-                <ul className="apph-ul">
+                <ul className="apph-bottom-ul">
                     <li className="apph-li">Diamonds</li>
                     <li className="apph-li">Engagement Rings</li>
                     <li className="apph-li">Wedding Rings</li>
