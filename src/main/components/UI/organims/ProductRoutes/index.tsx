@@ -23,8 +23,6 @@ export const ProductTab = () => {
     const fourthTab = React.useRef<HTMLElement>(null);
     const motherTab = React.useRef<HTMLDivElement>(null);
 
-    // React.useEffect(() => { })
-
     const theTabs = [
         {
             label: "Product Details",
@@ -53,13 +51,7 @@ export const ProductTab = () => {
 
     const history = useHistory();
 
-    // let target = tabSection;
-
-    // let options = {
-    //     root: tabSection.current,
-    //     rootMargin: "0px",
-    //     threshold: [0.9, 1],
-    // };
+ 
 
     React.useEffect(() => {
         const theHash = history.location.hash.split("#")[1];
@@ -77,28 +69,6 @@ export const ProductTab = () => {
         }
     }, [history.location.hash]);
 
-    // React.useEffect(() => {
-    //     let theHash = history.location.hash.split("#")[1];
-    //     const callback = (entries: Array<entryDef>, observer: any) => {
-    //         entries.forEach((entry) => {
-    //             console.log(entry.target.id);
-    //             const theId = entry.target.id;
-
-    //             console.log(theHash !== theId);
-
-    //             if (theHash !== theId) {
-    //                 console.log("---------------------------------");
-    //                 history.push(`#${theId}`);
-    //             }
-    //         });
-    //     };
-    //     let observer = new IntersectionObserver(callback, options);
-
-    //     if (firstTab?.current) observer.observe(firstTab?.current);
-    //     if (secondTab?.current) observer.observe(secondTab?.current);
-    //     if (thirdTab?.current) observer.observe(thirdTab?.current);
-    //     if (fourthTab?.current) observer.observe(fourthTab?.current);
-    // }, []);
 
     return (
         <>
