@@ -142,7 +142,7 @@ export const Gallery = () => {
                             </div>
                             <div className="theg-buttoncont--right">
                                 <p className="theg-buttoncont--text theg-buttoncont--light">
-                                    Yellow Gold
+                                    Round
                                 </p>
                                 <img
                                     className="theg-buttoncont-circle"

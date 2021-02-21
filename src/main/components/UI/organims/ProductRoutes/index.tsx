@@ -115,8 +115,8 @@ export const ProductTab = () => {
                                     className={
                                         history.location.hash
                                             .split("#")[1]
-                                            .toUpperCase() ===
-                                        tab.id.toUpperCase()
+                                            ?.toUpperCase() ===
+                                        tab.id?.toUpperCase()
                                             ? "product-nav-active"
                                             : "product-nav-normal"
                                     }
