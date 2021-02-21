@@ -1,48 +1,134 @@
 import * as React from "react";
 import "./index.css";
 import promo from "../../../../assets/images/promo.jpeg";
+import { useHistory } from "react-router";
+
+interface entryDef {
+    isIntersecting: boolean;
+    intersectionRatio: number;
+    target: {
+        id: string;
+    };
+}
 
 export const ProductTab = () => {
-    const { matches: motionOk } = window.matchMedia(
-        "(prefers-reduced-motion: no-preference)"
-    );
-
-    const tabGroup = React.useRef(null);
-    const tabSection = React.useRef(null);
+    const tabSection = React.useRef<HTMLElement>(null);
     const tabNav = React.useRef(null);
-    const tabIndicator = React.useRef(null);
+    const tabIndicator = React.useRef<HTMLDivElement>(null);
+    const productLocation = React.useRef<HTMLDivElement>(null);
+
+    const firstTab = React.useRef<HTMLElement>(null);
+    const secondTab = React.useRef<HTMLElement>(null);
+    const thirdTab = React.useRef<HTMLElement>(null);
+    const fourthTab = React.useRef<HTMLElement>(null);
+    const motherTab = React.useRef<HTMLDivElement>(null);
+
+    // React.useEffect(() => { })
+
+    const theTabs = [
+        {
+            label: "Product Details",
+            id: "product",
+        },
+        {
+            label: " Ring informations",
+            id: "ring",
+        },
+        {
+            label: "finance information",
+            id: "finance",
+        },
+        {
+            label: "shipping & returns",
+            id: "shipping",
+        },
+    ];
+
+    const handleNav = (index: number) => {
+        if (tabSection.current && firstTab.current) {
+            tabSection.current.scrollLeft =
+                firstTab.current?.offsetWidth * index;
+        }
+    };
+
+    const history = useHistory();
+
+    // let target = tabSection;
+
+    // let options = {
+    //     root: tabSection.current,
+    //     rootMargin: "0px",
+    //     threshold: [0.9, 1],
+    // };
+
+    React.useEffect(() => {
+        const theHash = history.location.hash.split("#")[1];
+        const theIndex = theTabs.map((tab) => tab.id).indexOf(theHash);
+
+        if (productLocation.current) {
+            if (theIndex === -1) {
+                productLocation.current.style.marginLeft = "0px";
+            } else {
+                const tabWidth = productLocation?.current?.clientWidth;
+                productLocation.current.style.marginLeft = `${
+                    theIndex * tabWidth
+                }px`;
+            }
+        }
+    }, [history.location.hash]);
+
+    // React.useEffect(() => {
+    //     let theHash = history.location.hash.split("#")[1];
+    //     const callback = (entries: Array<entryDef>, observer: any) => {
+    //         entries.forEach((entry) => {
+    //             console.log(entry.target.id);
+    //             const theId = entry.target.id;
+
+    //             console.log(theHash !== theId);
+
+    //             if (theHash !== theId) {
+    //                 console.log("---------------------------------");
+    //                 history.push(`#${theId}`);
+    //             }
+    //         });
+    //     };
+    //     let observer = new IntersectionObserver(callback, options);
+
+    //     if (firstTab?.current) observer.observe(firstTab?.current);
+    //     if (secondTab?.current) observer.observe(secondTab?.current);
+    //     if (thirdTab?.current) observer.observe(thirdTab?.current);
+    //     if (fourthTab?.current) observer.observe(fourthTab?.current);
+    // }, []);
 
     return (
         <>
             <section className="product-parent">
-                <div className="product snap-tabs">
+                <div className="product snap-tabs" ref={motherTab}>
                     <header className="scroll-snap-x product-header">
                         <nav ref={tabNav} className="product-nav">
-                            <a href="#product" id="product">
-                                Product Details
-                            </a>
-                            <a href="#ring" id="ring">
-                                Ring information
-                            </a>
-                            <a href="#finance" id="finance">
-                                finance information
-                            </a>
-                            <a href="#shipping" id="shipping">
-                                shipping & returns
-                            </a>
+                            {theTabs.map((tab, index) => (
+                                <a
+                                    href={`#${tab.id}`}
+                                    id={tab.id}
+                                    key={index}
+                                    onClick={() => handleNav(index)}
+                                >
+                                    {tab.label}
+                                </a>
+                            ))}
                         </nav>
-
-                        <div
-                            className="product-indicator"
-                            ref={tabIndicator}
-                        ></div>
                     </header>
+                    <div className="product-indicator" ref={tabIndicator}></div>
+                    <div
+                        className="product-location"
+                        ref={productLocation}
+                    ></div>
 
                     <section
                         className="product-cont scroll-snap-x "
                         ref={tabSection}
                     >
-                        <article id="product" className="">
+                        <article id="product" className="" ref={firstTab}>
                             <p>
                                 A four claw solitaire style engagement ring. The
                                 ring is set in 18ct rose gold and features a
@@ -53,41 +139,33 @@ export const ProductTab = () => {
                                 do contact us. Reference: PRS0004
                             </p>
                         </article>
-                        <article id="ring">
+                        <article id="ring" ref={secondTab}>
                             <p>
                                 At Steven Stone presentation is very important,
                                 so we ensure ever last detail is perfect when
                                 you purchase diamonds or jewellery from us. All
                                 of our jewellery is presented in high quality
-                                boxes made from recycled materials. We provide
-                                discreet packaging for all postage orders on
-                                engagement rings.
+                                boxes made from recycled materials.
                             </p>
                         </article>
-                        <article id="finance">
+                        <article id="finance" ref={thirdTab}>
                             <p>
                                 At Steven Stone we give you the option of
                                 spreading the cost of your jewellery over 12, 24
                                 or 36 months making those larger purchase much
                                 more affordable. As with every product at Steven
                                 Stone, we believe in tailoring your experience
-                                to meet your every need. Therefore, we have
-                                introduced flexible deposits on our financing
-                                options so you can decide an upfront cost that
-                                suits you and your budget.
+                                to meet your every need.
                             </p>
                         </article>
-                        <article id="shipping">
+                        <article id="shipping" ref={fourthTab}>
                             <p>
                                 Our shipping is fast & free. We use our fully
                                 tracked and insured courier service to ensure
                                 your item is safe. If you are not happy with
                                 your ring then it can be returned within 30
                                 days. Simply contact one of our customer service
-                                team to organise a return or exchange. We also
-                                offer free resizing if you happen to purchase
-                                the incorrect ring size, we are always happy to
-                                help.
+                                team to organise a return or exchange.
                             </p>
                         </article>
                     </section>
