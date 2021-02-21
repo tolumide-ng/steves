@@ -31,7 +31,7 @@ export const ProductTab = () => {
             id: "product",
         },
         {
-            label: " Ring informations",
+            label: " Ring information",
             id: "ring",
         },
         {
@@ -112,6 +112,14 @@ export const ProductTab = () => {
                                     id={tab.id}
                                     key={index}
                                     onClick={() => handleNav(index)}
+                                    className={
+                                        history.location.hash
+                                            .split("#")[1]
+                                            .toUpperCase() ===
+                                        tab.id.toUpperCase()
+                                            ? "product-nav-active"
+                                            : "product-nav-normal"
+                                    }
                                 >
                                     {tab.label}
                                 </a>

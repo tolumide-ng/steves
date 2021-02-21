@@ -74,6 +74,9 @@
 .apph-img-phone {
     display: flex;
     align-items: center;
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 300;
 }
 
 .apph-mid-right {

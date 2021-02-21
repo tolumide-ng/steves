@@ -29,6 +29,10 @@
     cursor: pointer;
 }
 
+.theg-button:active {
+    transform: scale(0.98);
+}
+
 .theg-buttoncont {
     display: flex;
     justify-content: space-between;
@@ -40,6 +44,12 @@
 } */
 
 .theg-buttoncont--left {
+    width: 100%;
+    font-weight: 400;
+}
+
+.theg-buttoncont--light {
+    font-weight: 300;
 }
 
 .theg-buttoncont--right {
@@ -124,6 +134,7 @@
     object-fit: cover;
     position: absolute;
     display: none;
+    overflow: hidden;
     /* scrollbar-width: none; */
 }
 /* .theg-mainimg::-webkit-scrollbar {
@@ -152,7 +163,8 @@
     height: 99%;
     width: 100%;
     max-height: 100%;
-    /* min-height: 100%; */
+    object-fit: cover;
+    min-height: 100%;
 }
 
 .theg-mainimg-cont {

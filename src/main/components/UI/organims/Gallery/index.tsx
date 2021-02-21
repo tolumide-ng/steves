@@ -112,7 +112,7 @@ export const Gallery = () => {
                                 <p className="theg-buttoncont--text">Metal</p>
                             </div>
                             <div className="theg-buttoncont--right">
-                                <p className="theg-buttoncont--text">
+                                <p className="theg-buttoncont--text theg-buttoncont--light">
                                     Yellow Gold
                                 </p>
                                 <img
@@ -136,10 +136,12 @@ export const Gallery = () => {
                     buttonJsx={
                         <div className="theg-buttoncont">
                             <div className="theg-buttoncont--left">
-                                <p className="theg-buttoncont--text">Metal</p>
+                                <p className="theg-buttoncont--text">
+                                    Diamond Shape
+                                </p>
                             </div>
                             <div className="theg-buttoncont--right">
-                                <p className="theg-buttoncont--text">
+                                <p className="theg-buttoncont--text theg-buttoncont--light">
                                     Yellow Gold
                                 </p>
                                 <img
